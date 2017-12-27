@@ -1,0 +1,317 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Simple Risk Assessment</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Crimson+Text|Raleway:400,300,600' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="container">
+          <h1 style="text-align: center;">Simple Risk Assessment</h1>
+          <h2 style="text-align: center;">A quantitative, probabilistic risk management method</h2>
+            <p> <strong>In a nutshell</strong>: This simple risk assessment provides data on <b>hard to measure</b> risks. This method is geared towards security teams who want to <strong>reduce</strong> risks, and <strong>express those reductions</strong> to leadership.</p>
+            <p>This is based on the <a href="">Probabilistic Risk Assessment</a> methodology used in <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20120001369.pdf">aerospace</a>, <a href="https://www.nrc.gov/about-nrc/regulatory/risk-informed/pra.html">nuclear</a>, <a href="https://www.bsee.gov/sites/bsee.gov/files/interagency-agreements-mous-moas//nasa-bsee-iaa-1-28-16.pdf">oil</a>, and other <a href="https://www.epa.gov/risk/policy-use-probabilistic-analysis-risk-assessment-epa">environmental industries</a>. This is an introductory method simplified towards forecasting, which should drive demand for data sharing around risks, and eventually producing better data for our industry.</p>
+            <p>Much more digestable explanations exist in this <a href="https://magoo.github.io/Risk-Forecasting/">slideshow</a>, and this <a href="https://medium.com/starting-up-security/killing-chicken-little-measure-and-eliminate-risk-through-forecasting-ecdf4c7e9575">medium article</a>.</p>
+          <h3>Let's look at an example forecast.</h3>
+            <p> When you are done with this document, you might own a forecast that looks something like this.</p>
+            <div class="alert alert-info" role="alert">
+              <p><strong>A remote adversary will access a production server in Q2.</strong></p>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-default">15% Once occurance</button>
+                <button type="button" class="btn btn-default">5% Multiple occurances</button>
+                <button type="button" class="btn btn-default">80% Won't occur</button>
+              </div>
+            </div>
+            <p> This is not an example of fortune telling. Instead, this method encourages you to produce measurement of your own <i>uncertainty</i> about a risk. It's something we already do, just with a quantifiable measurement. This should not change the way we work in unfavorable ways like a maturity model or controls checklist could.</p>
+            <p>A production risk framework using these methods will reduce cognitive bias, introduce skepticism,  evidence, and consensus into the process.</p>
+
+          <h3>1. Pick a scenario that describes the risk you want to mitigate.</h3>
+            <p>A scenario is influenced by any combination of a threat, vulnerability, or an impact. Choose a scenario that best reflects your concerns and mitigation efforts. You might have to use a few high level scenarios. Here are some examples:</p>
+            <ul>
+              <li />A remote adversary gains a foothold on a production server in Q2.
+              <li />A key breach obtains S3 bucket read access this year
+              <li />A user does not return to our service after their account was taken over.
+            </ul>
+            <div id="scenario" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#scenario" href="#scenario1" aria-expanded="true" aria-controls="scenario1">
+                  More information on scenario selection.
+                </a>
+                <div id="scenario1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>Choose a scenario that best represents the risk you're concerned about, and how you are organizing your effort to reduce that risk.</p>
+                    <p>Here's an example of how this differs, with small variances on a similar risk:</p>
+                    <ol>
+                      <li /> A bank robber has entered the vault.
+                      <li /> The bank vault has been completely emptied.
+                      <li /> An attack on the vault has resulted in a loss exceeding $10k.
+                      <li /> A bank robber climbs through the ductwork and enters the vault.
+                    </ol>
+                    <p>The <strong>first scenario</strong> is influenced by reducing the odds that a bank robber could get to the vault. Any risk mitigation effort will be centered around the bank robber's ease of access to the vault.</p>
+                    <p>The <strong>second scenario</strong> is most influenced by limiting the overall amount of funds that are needed in the vault. It assumes that a bank robber, <emphasis>or something else</emphasis>, will eventually deplete the vault. </p>
+                    <p>The <strong>third scenario</strong> implies aspects of both. Mitigation efforts for the third scenario will be influenced by reducing the probility of the attack, but also anything that would slow the attacker down or limit their capacity to succeed. By being more vague about the threat actor, it also consider something like an insider threat into calculation.</p>
+                    <p>The <strong>fourth scenario</strong> is related to a specific vulnerability. This would encourage efforts to mitigate the vulnerability entirely, or add compensating controls focused on a specific problem.</p>
+                    <p>You can see that being intentionally specific or vague in developing a scenario allows you to include or exclude known and unknown risks. This concept is developed further <a href="https://medium.com/starting-up-security/decomposing-security-risk-into-scenarios-7ecf0979be01">here</a>. Skillfully crafting the right scenario can attract mitigation techniques that are properly scoped to your expectations, while allowing and attracting creative solutions.</p>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <h3>2. Design your forecast based on possible outcomes of your scenario.</h3>
+            <p>The scenario needs two qualities for us to forecast it. The first, is a reasonable timeframe the event could occur (months, quarter, year). Second, is a structured set of outcomes for the forecast.</p>
+            <div class="alert alert-info" role="alert">
+              A remote adversary gains a foothold on a production server in Q2.
+            </div>
+            <p>The following examples measure these various aspects of probability and impact.</p>
+            <ul>
+              <li>Percentage of zero, one, or more than one occurrence.</li>
+              <li>Percentage likelihood they will find and use database credentials.</li>
+              <li>90% confidence that the resulting outage will land within a specified timeframe. </li>
+            </ul>
+
+            <div id="forecast" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#forecast" href="#forecast1" aria-expanded="true" aria-controls="forecast1">
+                  More information on planning a forecast.
+                </a>
+                <div id="forecast1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>Some events happen so infrequently, you are simply forecasting if it will happen at all. A nice structure for that is divvying up the probability of something happening once, more than once, or not at all.</p>
+                    <div class="alert alert-info" role="alert">
+                      <strong>Our S3 bucket with customer data is made public this year.</strong>
+                      <p>85%: Won't happen. 10%: Will happen. 5%: Will happen more than once.</p>
+                    </div>
+                    <p>Scenarios related to impact do well with estimating a range of values that you are mostly sure the correct result will fall into. For instance:</p>
+                    <div class="alert alert-info" role="alert">
+                      <strong>My wallet was stolen this month.</strong>
+                      <p>I am 90% confident I will lose $0-100</p>
+                    </div>
+                    <p>You can also estimate whether an incident will become an initiating event for a larger attack.</p>
+                    <div class="alert alert-info" role="alert">
+                      <strong>Malware has infected an employee with SRE permissions and credentials.</strong>
+                      <p>10% chance the adversary will go on to pivot throughout our network.</p>
+                    </div>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <h3>3. Decompose the scenario into smaller, related scenarios.</h3>
+            <p>Identify the events that lead up to this larger event. This process looks very similar to threat modeling.</p>
+            <p>What events might take place before the big event occurs? There are likely very many. Some examples:</p>
+
+            <div class="alert alert-secondary" role="alert">
+              We have misconfigured a firewall and exposed systems to the internet.
+            </div>
+            <div class="alert alert-secondary" role="alert">
+              A vulnerability in our product is exposed to the internet.
+            </div>
+            <div class="alert alert-secondary" role="alert">
+              One of the vendors in our product's build pipeline has patched a vulnerability that we used.
+            </div>
+            <div id="decomposition" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#decomposition" href="#decomposition1" aria-expanded="true" aria-controls="decomposition1">
+                  More information on decomposition.
+                </a>
+                <div id="decomposition1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>The research done around human estimation suggests that forecasters who decompose a problem will have improved forecasts. This is sometimes referred to as the <a href="https://www.grc.nasa.gov/www/k-12/Numbers/Math/Mathematical_Thinking/fermis_piano_tuner.htm">"Fermi Problem"</a>.</p>
+                    <p>This is why it's sometimes valuable to substitute relevant scenarios for ones we are lacking data around. For instance, you can better estimate the average height of an apple tree by knowing the average hight of an orange and pear tree. It helps bring you into a ballpark with "outside" information, to which you'll apply your own estimation skills.</p>
+                    <p>You may discover that the risk you have identified already has a "<a href="https://en.wikipedia.org/wiki/Kill_chain">kill chain</a>", or an "<a href="https://attack.mitre.org/wiki/Main_Page">attack matrix</a>" defined.</p>
+                    <p>In probability risk assessments in the nuclear industry, these are often called "<a href="http://nrcoe.inl.gov/resultsdb/InitEvent/">Initiating Events</a>".</p>
+                    <p>NASA also calls these initating events, and has documented this process <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20120001369.pdf">here</a> (3.3.1).</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <h3>4. Reduce your bias and calibrate your confidence through training.</h3>
+            <p>Research suggests that training will drastically improve the reliability of our forecasts. <a href="https://good-judgment.thinkific.com/courses/Superforecasting-Fundamentals">This online training</a> resembles the training <a href="http://journal.sjdm.org/16/16511/jdm16511.pdf">used in that research</a>. Our ultimate goal is to calibrate the Brier score of people involved with this process. <a href="https://en.wikipedia.org/wiki/Overconfidence_effect">Established biases</a> should be taught to forecasters in this training, no matter what service is used.</p>
+
+            <div id="calibration" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#calibration" href="#calibration1" aria-expanded="true" aria-controls="calibration1">
+                  More information on calibration and free methods.
+                </a>
+                <div id="calibration1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>Humans are <a href="https://en.wikipedia.org/wiki/Overconfidence_effect#Practical_implications">wildly overconfident</a>, and <a href="https://www.newyorker.com/magazine/2005/12/05/everybodys-an-expert">experts</a> can be even worse. Research strongly suggests this to be the case.</p>
+                    <p>Most people don't grasp that "100% certainty" means that they'd be willing to place a large bet on something that offers no reward.</p>
+                    <p>This poor quality can be measured easily in any person. The <a href="https://timvangelder.com/2015/05/18/brier-score-composition-a-mini-tutorial/">Brier score</a> is a dead simple method used to measure how calibrated a person's sense of confidence is with their actual knowledge. It can be fixed quickly.</p>
+                    <p>The most important aspect of forecasting is the Brier Score. A feedback loop that holds you accountable for your miscalibration will rapidly improve it. By being constantly tested and accountable for our forecasts, we can quickly prevent ourselves from becoming overconfident. </p>
+                    <p>There are <a href="https://www.edge.org/conversation/philip_tetlock-edge-master-class-2015-a-short-course-in-superforecasting-class-i"/>plenty of online materials</a> to recreate the training used in the above cited research. The aim of training is to make individuals self aware of common sources of cognitive bias, our natural reactions to new information, and overconfidence.</p>
+                    <p>This research shows that calibration against <emphasis>any</emphasis> subject matter is useful. Regular participation in forecasting games like the <a href="https://www.gjopen.com/">Good Judgement Open</a>, or simply doing <a href="http://confidence.success-equation.com/">online calibrations</a> should have the same effect. </p>
+                    <p>In general, training and awareness of cognitive bias, combined with practice, are critical.</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <h3>5. Gather evidence and data related to your decomposition.</h3>
+            <p>Now your forecasters should have opinions and demands for evidence that influence the potential outcomes of these scenarios. We want to get forecasters decision making data. This is obviously very different than volumes of unprocessed, meaningless, raw data.</p>
+
+              <p>This evidence comes in many forms and is not limited to historical statistics:</p>
+
+              <ul>
+                <li>Historical bug bounty data</li>
+                <li>Opinion briefs from informed co-workers</li>
+                <li>Historical incident data</li>
+                <li>Patch coverage metrics</li>
+                <li>Number of released vulnerabilities</li>
+                <li>Penetration test results</li>
+                <li>Red Team anecdotes</li>
+                <li>Industry data, blogs, and post-mortems</li>
+              </ul>
+
+            <p>Forecaster demand is important. Don't bother collecting data that a forecaster won't find useful. No need to overdo it on collection.</p>
+            <div id="datagather" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#datagather" href="#datagather1" aria-expanded="true" aria-controls="datagather1">
+                  More information on data gathering.
+                </a>
+                <div id="datagather1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>Nobel prize winning research describes effective forecasting as using <a href="https://en.wikipedia.org/wiki/Reference_class_forecasting">"outside" and "inside"</a> data. For instance, industry data that says it takes eight months to discover a breach would be considered "outside" data. If you have data to make you believe you are better or worse than industry standard, that would be considered "inside" data. Seek out both outside data, as well as inside data, and make sure your forecasters understand the difference.</p>
+                    <p>As forecasts occur over time, previous forecasts themselves can be useful as "stand-in" data where no other data exists.</p>
+                    <p>However, data collection that is useful for statistical modeling will quickly replace a forecast, or better inform a forecaster than a previous forecast alone. Always prefer better data.</p>
+                    <p>The <a href="https://magoo.github.io/Blockchain-Graveyard/">Blockchain Graveyard</a> is an example of postmortem data with a low signal of truth. It relies on expert estimation of root cause based on unreliable data. It is still extremely useful as data for forecasting.</p>
+                    <p>If forecasting methods become more common, it will be simple to share forecasts and data for similar scenarios with companies within your industry. Or, for instance, higher risk scenarios or industries. If a university network can produce data that ~%50 of hosts on a dormitory wireless network exhibit signs of compromise over the course of a year, a forefcaster can use that data to narrow their estimations of a managed and invested network.</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <h3>6. Make forecasts and update them over time with new information.</h3>
+            <p>This is as simple as recording your forecasts into a spreadsheet. A group of forecasters should get a chance to discuss their forecasts and modify them. This will help reveal scenario misunderstandings, or dramatic differences in how evidence was interpreted per person.</p>
+            <p>Record the average of forecasted values to create a representative forecast.</p>
+            <p>There is a lot of flexibility in how often you measure forecasts over time, as these are numeric values and you can track their progress very simply. You may want to trigger measurement at certain milestones to ensure that the team still feels progress will be made.</p>
+            <div class="alert alert-info" role="alert">
+              <p><strong>Our database is dumped and exfiltrated during an infrastructure breach this year.</strong></p>
+
+              <p>Forecast: Percentage of never happening, happening once, or more than once.</p>
+            </div>
+            <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Forecaster</th>
+                <th scope="col">Never</th>
+                <th scope="col">Only once</th>
+                <th scope="col">More than once</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>75%</td>
+                <td>20%</td>
+                <td>5%</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>80%</td>
+                <td>18%</td>
+                <td>2%</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>40%</td>
+                <td>25%</td>
+                <td>35%</td>
+              </tr>
+              <tr>
+                <th scope="row">Average</th>
+                <td><strong>65%</strong></td>
+                <td><strong>21%</strong></td>
+                <td><strong>14%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Should new information come to the forecasters at any time, they may update these scenarios. For instance, let's say your team receives scary results from penetration test. This may cause probability to reduce from the "never" column and move to the "once" column.</p>
+          <p> Alternatively, a deployment of second factor authentication may move probability to the left, into the "never" column.</p>
+            <div id="makeforecast" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#makeforecast" href="#makeforecast1" aria-expanded="true" aria-controls="makeforecast1">
+                  More information on forecasting
+                </a>
+                <div id="makeforecast1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>This example shows the use of multiple forecasters. A simple average of multiple forecasts has been shown to help smoothen out biases and misunderstandings across multiple people.</p>
+                    <p>Panels of forecasters with expertise in their subject area are a very common risk assessment tool used in <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20120001369.pdf">many high risk industries</a>.</p>
+                    <p>Diversifying a panel with asset owners, leadership, technical experts, or even outside consultation will help add integrity to the forecast.</p>
+                    <p>Of note, teams of less informed forecasters were used to compete with intelligence agencies armed with classified information, and <a href="https://www.npr.org/sections/parallels/2014/04/02/297839429/-so-you-think-youre-smarter-than-a-cia-agent">won by a broad margin</a>. Alternatively, when intelligence agencies that employ these forecasting methods with tight feedback loops see very positive results <a href="https://motherboard.vice.com/en_us/article/kbz7gn/canadian-intelligence-agencies-are-actually-pretty-good-at-strategic-forecasting">when forecasting complex scenarios</a>.</p>
+                    <p>For great information on why ordinal scales should not be used, see research done by <a href="https://en.wikipedia.org/wiki/Words_of_estimative_probability">Sherman Kent</a> which suggested improvements to the National Intelligence Estimate process. The value of estimates made by the entire intelligence community were diminished because of misunderstandings in the words used to express confidence, which were fixed by a quantitative system.</p>
+                    <p>Additionally, see the "<a href="https://www.rand.org/topics/delphi-method.html">Delphi</a>" method, developed by RAND in the 50's, which suggests a "forecast, talk, forecast" approach to a forecast using a panel.</p>
+                    <p>Lastly, you may want to train individuals on different ways to interpret to probabilities they assign in frames of time. For instance, a 10% annual probability should occur every ten years on average. 50% probability will occur once every other year on average. Someone may quickly say 5% without also reasoning that it means a probability of once every 20 years. You can confront a forecaster with that realization and it will help them settle their forecast into a place that makes more sense to them.</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <h3>7. Record the outcome when the scenario expires.</h3>
+            <p>When the forecast timeframe "closes", discuss with the team if the event occurred. You can discuss the root cause, update any scenario decomposition, and begin maintaining the event as a form of historical data for future forecasting.</p>
+            <p>It is critical to hold a review and observe the correctness of forecasts. Reward accurate forecasts and post-mortem forecasts that were high confidence and incorrect.</p>
+            <p>For example, if an individual or panel states 90% confidence that a system will be breached within the next quarter and is clearly not breached... then this is a topic for discussion and course correction. These misses will damage a panel or individual's Brier score over time.</p>
+
+
+            <div id="record" data-children=".item">
+              <div class="item">
+                <i class="fa fa-book" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#record" href="#record1" aria-expanded="true" aria-controls="record1">
+                  More information on record keeping
+                </a>
+                <div id="record1" class="collapse" role="tabpanel">
+                  <p class="mb-3">
+                    <p>This method is highly reliant on "hunting", audit logs, and detection. It may warrant a secondary effort to thoroughly review a backlog of activity for a specific type of compromise, thus providing you with confidence that a hard-to-detect event didn't occur.</p>
+                    <p>Whether or not your detection capability or log reliability  will be useful in a future incident is also a forecastable scenarios that can be improved through this process.</p>
+                    <p>It's perfectly OK to be skeptical that your efforts to detect an issue weren't thorough. Sometimes we aren't in a place where we can truly rely on our detection capability. In fact, this skepticism is common, and can be tracked by yet another forecast: </p>
+                    <div class="alert alert-info" role="alert">
+                      <p><strong>We have detected a malicious process running on our bastion server.</strong></p>
+
+                      <p>Forecast: Yes (55%)</p>
+                    </div>
+                    <p>If there is a massive drop off in confidence about your detection capability, you can then pivot and decide if trust <a href="https://medium.com/starting-up-security/lessons-learned-in-detection-engineering-304aec709856">needs to be built</a>, or if a <a href="https://medium.com/@palantir/alerting-and-detection-strategy-framework-52dc33722df2">different approach altogether</a> is necessary.</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h3>8. Bring it all together.</h3>
+            <p>Once you have successfully tracked a single risk, you will have historic data to include into other forecasts. You can stop and measure a different risk, or you can begin a full risk management program where you track constellations of risk over time. This begins a burden of hiring someone to manage this process.</p>
+            <p>The problem with prioritizing risks to apply effort to is almost entirely based on the problem of impact. In mature risk management, you sort your risks by potential impact, and apply effort to mitigate them. This method largely assumes that we have already selected risks to work on, and we are measuring our progress in reducing a specific probability or impact.</p>
+            <p>It is preferred, and possible, to estimate the damages associated with your risks. However, this increases the efforts and measurement costs associated with putting these forecasts together. In most cases, we have already decided on a batch of risks, and a simple consus based vote can organize risks in the meantime. If you demand this level of sophistication in a risk assessment framework, you can graduate to something like the <a href="http://www.fairinstitute.org/">FAIR</a> approach, which requires it.</p>
+            <p>If you are able to create specific scenarios that are portable with other companies or security companies, potential exists for you to share highly portable risk data that does not reveal sensitive information. For instance: "Hey <code>$company</code>, what's your baseline forecast for someone hacking a GSuite admin?"</p>
+
+        <h3>A work in progress.</h3>
+        <p>This is an draft risk management approach for teams who have outgrown checklists and maturity models. There are plenty of known problems, so please use an indoor voice when pointing them out. </p>
+        <h2 style="text-align: center;">Send feedback to <a href="https://twitter.com/magoo">@magoo</a>!</h2>
+      </div>
+    </body>
+</html>
