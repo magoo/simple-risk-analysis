@@ -96,12 +96,23 @@
               <li>Percentage likelihood they will find and use database credentials.</li>
               <li>90% confidence that the resulting outage will last within a certain range of hours. </li>
             </ul>
-            <p>If we choose to use the third example, the forecast would look like this:</p>
+            <p>If we choose to use the third example, the forecasts would look like this:</p>
             <div class="alert alert-info" role="alert">
               <p><strong>A remote adversary gains a foothold on a production server in Q2.</strong></p>
               <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-default">Our website will suffer an outage between <strong>30 minutes</strong> and <strong>12 hours</strong>.</button>
+                <button type="button" class="btn btn-default">80% Won't occur</button>
+                <button type="button" class="btn btn-default">15% Once occurance</button>
+                <button type="button" class="btn btn-default">5% Multiple occurances</button>
               </div>
+
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-default">25% Will find Database Credentials</button>
+                <button type="button" class="btn btn-default">75% Won't find Database Credentials</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-default">We are 90% certain the website will suffer an outage between <strong>30 minutes</strong> and <strong>36 hours</strong>.</button>
+              </div>
+
             </div>
 
 
@@ -124,7 +135,7 @@
                     </div>
                     <p>You can also estimate whether an incident will become an initiating event for a larger attack.</p>
                     <div class="alert alert-info" role="alert">
-                      <strong>Malware has infected an employee with SRE permissions and credentials.</strong>
+                      <strong>Malware has landed on an employee laptop with SRE permissions and credentials.</strong>
                       <p>10% chance the adversary will go on to pivot throughout our network.</p>
                     </div>
 
