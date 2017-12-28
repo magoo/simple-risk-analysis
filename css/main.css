@@ -156,7 +156,8 @@ textarea {
    .container{
      max-width:800px;
      margin: 0 auto;
-     padding: 0;
+     padding-left: : 1em;
+     padding-right: 1em;
    }
 
    .card-header{
