@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Simple Risk Assessment</title>
+        <title>Simple Risk Analysis</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,9 +33,9 @@
 
         <!-- Add your site or application content here -->
         <div class="container">
-          <h1 style="text-align: center;">Simple Risk Assessment</h1>
-          <h2 style="text-align: center;">A quantitative, probabilistic risk management method</h2>
-            <p>This simple risk assessment provides data on <b>hard to measure</b> risks. This method is geared towards security teams who want to <strong>reduce</strong> risks, and <strong>measure</strong> those reductions.</p>
+          <h1 style="text-align: center;">Simple Risk Analysis</h1>
+          <h2 style="text-align: center;">A quantitative, probabilistic risk measurement method</h2>
+            <p>This simple risk analysis method provides data on <b>hard to measure</b> risks. This method is geared towards security teams who want to <strong>reduce</strong> risks, and <strong>measure</strong> those reductions.</p>
 
             <p>It can be explained briefly:</p>
             <ol>
@@ -49,20 +49,24 @@
 
           <h3>Where does this come from?</h3>
 
-            <p>This is based on the <a href="https://en.wikipedia.org/wiki/Probabilistic_risk_assessment">Probabilistic Risk Assessment</a> methodology used in <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20120001369.pdf">aerospace</a>, <a href="https://www.nrc.gov/about-nrc/regulatory/risk-informed/pra.html">nuclear</a>, <a href="https://www.bsee.gov/sites/bsee.gov/files/interagency-agreements-mous-moas//nasa-bsee-iaa-1-28-16.pdf">oil</a>, and other <a href="https://www.epa.gov/risk/policy-use-probabilistic-analysis-risk-assessment-epa">environmental industries</a>. This document simplifies these practices and focuses on the avaialable research to improve collaborative forecasting.</p>
+            <p>This is based on the <a href="https://en.wikipedia.org/wiki/Probabilistic_risk_assessment">Probabilistic Risk Assessment</a> methodology used in <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20120001369.pdf">aerospace</a>, <a href="https://www.nrc.gov/about-nrc/regulatory/risk-informed/pra.html">nuclear</a>, <a href="https://www.bsee.gov/sites/bsee.gov/files/interagency-agreements-mous-moas//nasa-bsee-iaa-1-28-16.pdf">oil</a>, and other <a href="https://www.epa.gov/risk/policy-use-probabilistic-analysis-risk-assessment-epa">environmental industries</a>. This document simplifies these practices and focuses on the availalable research to improve collaborative forecasting.</p>
 
           <h3>Let's look at an example forecast.</h3>
             <p> When you are done with this document, you might own a forecast that looks something like this.</p>
             <div class="alert alert-info" role="alert">
               <p><strong>A remote adversary will access a production server in Q2.</strong></p>
               <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-default">80% Won't occur</button>
                 <button type="button" class="btn btn-default">15% Once occurance</button>
                 <button type="button" class="btn btn-default">5% Multiple occurances</button>
-                <button type="button" class="btn btn-default">80% Won't occur</button>
+
               </div>
             </div>
-            <p> This is not an example of fortune telling. Instead, this method encourages you to produce measurement of your own <i>uncertainty</i> about a risk. It's something we already do, just with a quantifiable measurement. This process does not prescribe mitigations.</p>
-            <p>A production risk framework using these methods will reduce cognitive bias, introduce skepticism,  evidence, and consensus into the process.</p>
+            <p> This is not an example of fortune telling. Instead, we are measuring <i>uncertainty</i> about a risk. Uncertainty is part of what drives our intuition about risk, and is the basis for most of the decisions we make.</p>
+
+            <p>For example, <i>total</i> uncertainty about the above scenario would result in a 33%/33%/33% forecast. If you wouldn't agree with those probabilities, it's because you have a measurable uncertainty that differs from them.</p>
+
+            <p>This document suggests ways to reduce cognitive bias, introduce skepticism, develop evidence gathering, and find consensus in prioritizing risk.</p>
 
           <h3>1. Pick a scenario that describes the risk you want to mitigate.</h3>
             <p>A scenario is influenced by any combination of a threat, vulnerability, or an impact. Choose a scenario that best reflects your concerns and mitigation efforts. Make sure it is time specific, so it can expire in a reasonable time. Here are some examples:</p>
@@ -174,7 +178,7 @@
             </div>
 
           <h3>4. Reduce your bias and calibrate your confidence through training.</h3>
-            <p>Research suggests that training will drastically improve the reliability of our forecasts. <a href="https://good-judgment.thinkific.com/courses/Superforecasting-Fundamentals">This online training</a> resembles the training <a href="http://journal.sjdm.org/16/16511/jdm16511.pdf">used in that research</a>. Our ultimate goal is to calibrate the Brier score of people involved with this process. <a href="https://en.wikipedia.org/wiki/Overconfidence_effect">Established biases</a> should be taught to forecasters in this training, no matter what service is used.</p>
+                        <p>Research suggests that training will drastically improve the reliability of our forecasts. <a href="https://good-judgment.thinkific.com/courses/Superforecasting-Fundamentals">This online training</a> resembles the training <a href="http://journal.sjdm.org/16/16511/jdm16511.pdf">used in that research</a>. Our ultimate goal is to calibrate the Brier score of people involved with this process. <a href="https://en.wikipedia.org/wiki/Overconfidence_effect">Established biases</a> should be taught to forecasters in this training, as well as concepts like the "<a href="https://en.wikipedia.org/wiki/Overconfidence_effect">overconfidence effect</a>".</p>
 
             <div id="calibration" data-children=".item">
               <div class="item">
@@ -183,8 +187,8 @@
                 </a>
                 <div id="calibration1" class="collapse" role="tabpanel">
                   <p class="mb-3">
+                    <p>We want participants to resemble a weather forecasters as much as possible. That is, someone who is constantly held accountable for the outcomes of their forecasts.</p>
                     <p>Humans are <a href="https://en.wikipedia.org/wiki/Overconfidence_effect#Practical_implications">wildly overconfident</a>, and <a href="https://www.newyorker.com/magazine/2005/12/05/everybodys-an-expert">experts</a> can be even worse. Research strongly suggests this to be the case.</p>
-                    <p>Most people don't grasp that "100% certainty" means that they'd be willing to place a large bet on something that offers no reward.</p>
                     <p>This poor quality can be measured easily in any person. The <a href="https://timvangelder.com/2015/05/18/brier-score-composition-a-mini-tutorial/">Brier score</a> is a dead simple method used to measure how calibrated a person's sense of confidence is with their actual knowledge. It can be fixed quickly.</p>
                     <p>The most important aspect of forecasting is the Brier Score. A feedback loop that holds you accountable for your miscalibration will rapidly improve it. By being constantly tested and accountable for our forecasts, we can quickly prevent ourselves from becoming overconfident. </p>
                     <p>There are <a href="https://www.edge.org/conversation/philip_tetlock-edge-master-class-2015-a-short-course-in-superforecasting-class-i"/>plenty of online materials</a> to recreate the training used in the above cited research. The aim of training is to make individuals self aware of common sources of cognitive bias, our natural reactions to new information, and overconfidence.</p>
@@ -196,20 +200,12 @@
             </div>
 
           <h3>5. Gather evidence and data related to your decomposition.</h3>
-            <p>Now your forecasters should have opinions and demands for evidence that influence the potential outcomes of these scenarios. We want to get forecasters decision making data. This is obviously very different than volumes of unprocessed, meaningless, raw data.</p>
+            <p>Now your forecasters should have opinions and demands for evidence that influence the potential outcomes of these scenarios. We want to get forecasters decision making data.</p>
 
-              <p>This evidence comes in many forms and is not limited to historical statistics:</p>
+              <p>Do not limit your imagination to whatever frequency based historical statistics you can pull together.</p>
 
-              <ul>
-                <li>Historical bug bounty data</li>
-                <li>Opinion briefs from informed co-workers</li>
-                <li>Historical incident data</li>
-                <li>Patch coverage metrics</li>
-                <li>Number of released vulnerabilities</li>
-                <li>Penetration test results</li>
-                <li>Red Team anecdotes</li>
-                <li>Industry data, blogs, and post-mortems</li>
-              </ul>
+              <p>During training, a forecaster should be hyper aware about their tendancy to overvalue certain types of data, and our process will limit the volatility introduced by a drastic bias. This allows us to introduce all forms of information. </p>
+              <p>Audit results, interviews, opinion briefs, and cross industry data are all useful and the forecaster will observe them with measure. </p>
 
             <p>Forecaster demand is important. Don't bother collecting data that a forecaster won't find useful. No need to overdo it on collection.</p>
             <div id="datagather" data-children=".item">
@@ -323,12 +319,10 @@
             </div>
 
             <h3>8. Build upon each measurement towards an assessment.</h3>
-            <p>In this document, we've measured a single risk, which is considered to be risk analysis. The broader enumeration of risk is something that this document won't advise on.</p>
-            <p>However, the prioritization of risks is something that influences decision making quite a bit.</p>
-            <p>Once we have enumerated the constellation of risks that we care about, prioritization is usually done by quantifying the impact of these risks, and sorting. Then, you apply effort and resource towards mitigating them, top to bottom.</p>
-            <p>However, impact also requires effort to measure or estimate. This may be cost or time prohibitive, and may not be necessary.</p>
-            <p>Most teams already rely on intuition based prioritization instead of a quantifiable method. So, this process can be as simple a a consensus driven vote, which represents group estimation as well. When enough resource appears to measure or forecast impact, you can then mature to a numeric approach to prioritization.</p>
-            <p>If you are able to create specific scenarios that are portable with other companies or security companies, potential exists for you to share highly portable risk data that does not reveal sensitive information. For instance: "Hey <code>$company</code>, what's your baseline forecast for someone hacking a GSuite admin?"</p>
+            <p>In this document, we've measured the outcomes related to an invidual scenario. This is considered to be a single risk analysis.</p>
+            <p>Eventually, you'll desire having a broader enumeration of scenarios that you'll forecast. This is how risk assessments work at their core, across many scenarios.</p>
+            <p>Deciding on which risks to tackle first can be as simple a <a href="https://en.wikipedia.org/wiki/Cumulative_voting">cumulative vote</a>, which represents group estimation as well. When enough resource appears to measure or forecast impact, you can then mature to a numeric approach to prioritization.</p>
+
 
         <h3>A work in progress.</h3>
         <p>This is an draft risk management approach for teams who have outgrown checklists and maturity models. There are plenty of known problems, so please use an indoor voice when pointing them out. </p>

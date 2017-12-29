@@ -96,6 +96,10 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+   button {
+     background-color: white;
+   }
+
    .btn-default{
      color: grey;
      font-family: Raleway;
